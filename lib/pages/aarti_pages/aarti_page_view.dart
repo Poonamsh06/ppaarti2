@@ -1,16 +1,51 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/state_manager.dart';
-import 'package:pujapurohit/models/samples.dart';
-import 'package:pujapurohit/utils/arti_reader.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart';
 
-class AartiPage extends StatelessWidget {
+import '../../models/samples.dart';
+import '../../utils/aarti_details.dart';
+import '../../utils/arti_reader.dart';
+import 'aarti_drawer.dart';
+
+class MobileViewAartiPage extends StatelessWidget {
   var item_no = 0.obs;
-  AartiPage(int p_item_no) : item_no = p_item_no.obs;
+// int item_no;
+  MobileViewAartiPage(int p_item_no) : item_no = p_item_no.obs;
+//int p_item_no
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        drawer: NavigationDrawerWidget(item_no.value),
+
+
+
+
+    body: Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Stack(
+
+        children:[
+          Obx( ()=>
+             Expanded(
+
+                child: AartiDetails(item_no.value),
+              ),
+          ),
+         Icon(Icons.menu),
+
+
+
+     ] ),
+      ),
+
+    );
+  }
+}
+
+class WideScreenAartiPage extends StatelessWidget {
+  var item_no = 0.obs;
+  WideScreenAartiPage(int p_item_no) : item_no = p_item_no.obs;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,7 +81,8 @@ class AartiPage extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
                                   color: Colors.white,
                                 ),
                                 height: 80,
@@ -104,36 +140,5 @@ class AartiPage extends StatelessWidget {
         ),
       )
     ])));
-  }
-}
-
-class AartiDetails extends StatelessWidget {
-  int item_no;
-  AartiDetails(this.item_no);
-  var style = MarkdownStyleSheet(
-    textAlign: WrapAlignment.center,
-    h1Align: WrapAlignment.center,
-    h1: const TextStyle(color: Colors.orangeAccent, fontSize: 28),
-    textScaleFactor: 1.5,
-  );
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: FutureBuilder(
-            future: rootBundle.loadString(artis[item_no].textPath),
-            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-              if (snapshot.hasData) {
-                return Markdown(
-                  data: snapshot.data!,
-                  styleSheet: style,
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }),
-      ),
-    );
   }
 }

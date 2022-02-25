@@ -5,7 +5,7 @@ import 'package:http/http.dart';
 import 'package:pujapurohit/localization_service.dart';
 import 'package:pujapurohit/models/book.dart';
 import 'package:pujapurohit/models/samples.dart';
-import 'package:pujapurohit/pages/arti_page.dart';
+import 'package:pujapurohit/pages/aarti_pages/arti_page.dart';
 import 'package:pujapurohit/pages/drawer_screen.dart';
 import 'package:pujapurohit/responsive.dart';
 import 'package:pujapurohit/utils/epub_reader.dart';

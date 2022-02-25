@@ -110,7 +110,7 @@ List<ArtiInfo> artis = [
       'lib/assets/assets_music_music1.mp3'),
   ArtiInfo(
       'Mahadev Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/mahadev_aarti.md', 'lib/assets/assets_music_music1.mp3'),
-  ArtiInfo('Maa Saraswati Aarti'.tr, 'lib/assets/images/artis/rabbit.png', 'lib/assets/markdown/artis/saraswati_aarti.md',
+  ArtiInfo('Maa Saraswati Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/saraswati_aarti.md',
       'lib/assets/assets_music_music1.mp3'),
   ArtiInfo(
       'Maa Ganga Aarti'.tr, 'lib/assets/images/artis/ganpati1.png', 'lib/assets/markdown/artis/ganga_aarti.md', 'lib/assets/assets_music_music1.mp3'),
