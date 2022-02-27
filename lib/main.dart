@@ -15,7 +15,6 @@ import 'localization_service.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
-import 'package:graphql/client.dart';
 
 Future<Box> openHiveBox(String boxName) async {
   if (!kIsWeb && !Hive.isBoxOpen(boxName)) Hive.init((await getApplicationDocumentsDirectory()).path);
